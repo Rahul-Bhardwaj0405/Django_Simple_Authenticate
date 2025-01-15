@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRCTC Signup</title>
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+</head>
+<body class="bg-image">
+    <header>
+        <img src="{% static 'login/images/irctc-logo.png' %}" alt="IRCTC Logo" class="logo">
+    </header>
+
+    <div class="container" id="signup-container">
+        {% if error_message %}
+            <div class="error">{{ error_message }}</div>
+        {% endif %}
+        {% if success_message %}
+            <div class="success">{{ success_message }}</div>
+        {% endif %}
+
+        <div class="form-header">
+            <h2>Register on IRCTC</h2>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="signup-username">Username</label>
+                <input type="text" id="signup-username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-phone">Phone Number</label>
+                <input type="tel" id="signup-phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="department">Select Department</label>
+                <select id="department" name="department" required>
+                    <option value="" disabled selected>Select Department</option>
+                    <option value="pg-accounting">PG Accounting</option>
+                    <option value="pg-settlement">PG Settlement</option>
+                    <option value="pg-chargeback">PG Chargeback</option>
+                    <option value="tourism">Tourism</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-confirm-password">Confirm Password</label>
+                <input type="password" id="signup-confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <div class="toggle-link">
+            <p>Already registered? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 IRCTC. All Rights Reserved</p>
+    </div>
+</body>
+</html>
