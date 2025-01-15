@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRCTC Login and Signup</title>
+    <link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+</head>
+<body class="bg-image">
+    <header>
+        <img src="{% static 'login/images/irctc-logo.png' %}" alt="IRCTC Logo" class="logo">
+    </header>
+
+    <div class="container">
+        {% if error_message %}
+            <div class="error">{{ error_message }}</div>
+        {% endif %}
+
+        <div id="login-container">
+            <div class="form-header">
+                <h2>Login to IRCTC</h2>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="toggle-link">
+                <p>New User? <a href="{% url 'signup' %}">Create an Account</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 IRCTC. All Rights Reserved</p>
+    </div>
+</body>
+</html>

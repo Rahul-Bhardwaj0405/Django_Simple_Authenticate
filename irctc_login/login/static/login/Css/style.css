@@ -1,0 +1,114 @@
+/* General Body Styling */
+body.bg-image {
+    background-image: url('/static/login/Images/bgImage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;  /* Ensure the body takes up full height */
+    display: flex;
+    flex-direction: column;  /* Align items vertically */
+    justify-content: center;  /* Vertically center content */
+    align-items: center;  /* Horizontally center content */
+}
+
+.container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;  /* Center the container */
+   }
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* Logo Styling */
+.logo {
+    margin-bottom: 20px;
+    text-align: center;  /* Center the logo */
+}
+
+.logo img {
+    max-width: 100px;  /* Set the maximum width of the logo */
+    height: auto;  /* Maintain the aspect ratio */
+}
+/* Form Header Styling */
+.form-header h2 {
+    margin: 0;
+    color: #b22222;  /* Red header */
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #dc143c;
+}
+
+/* Button Styling */
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #b22222;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #8b0000;
+}
+
+/* Toggle Link Styling */
+.toggle-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.toggle-link a {
+    color: #b22222;
+    text-decoration: none;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+}
+/* Footer Styling */
+.footer {
+    text-align: center;
+    margin-top: 0;  /* Remove margin above footer */
+    font-size: 14px;
+    color: #fff;  /* White text color */
+    background-color: #333;  /* Dark background */
+    padding: 10px;
+    width: 100%;
+    position: relative;
+}
+
+
+
+
