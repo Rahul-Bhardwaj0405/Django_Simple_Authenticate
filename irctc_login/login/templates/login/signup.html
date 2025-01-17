@@ -1,3 +1,5 @@
+#through html forms
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -67,3 +69,109 @@
     </div>
 </body>
 </html>
+
+#through python forms
+
+#{% load static %}
+#<!DOCTYPE html>
+#<html lang="en">
+#<head>
+    #<!-- Meta tags for character encoding and responsive design -->
+    #<meta charset="UTF-8">
+    #<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    #<!-- Page title -->
+    #<title>IRCTC Signup</title>
+    
+    #<!-- Linking an external CSS file using the Django static tag -->
+    #<link rel="stylesheet" href="{% static 'login/css/style.css' %}">
+#</head>
+#<body class="bg-image">
+    #<!-- Header section -->
+    #<header>
+        #<!-- Displaying the IRCTC logo using the Django static tag -->
+        #<img src="{% static 'login/images/irctc-logo.png' %}" alt="IRCTC Logo" class="logo">
+    #</header>
+
+    #<!-- Signup form container -->
+    #<div class="container" id="signup-container">
+        #<!-- Display an error message if `error_message` context variable is present -->
+        #{% if error_message %}
+            #<div class="error">{{ error_message }}</div>
+        #{% endif %}
+        
+        #<!-- Display a success message if `success_message` context variable is present -->
+        #{% if success_message %}
+            #<div class="success">{{ success_message }}</div>
+        #{% endif %}
+
+        #<!-- Form header -->
+        #<div class="form-header">
+            #<h2>Register on IRCTC</h2>
+        #</div>
+        
+        #<!-- Signup form -->
+        #<form method="post">
+            #{% csrf_token %} <!-- CSRF token for security -->
+
+            #<!-- Error and success messages -->
+            #{% if error_message %}
+                #<div class="error">{{ error_message }}</div>
+            #{% endif %}
+            #{% if success_message %}
+                #<div class="success">{{ success_message }}</div>
+            #{% endif %}
+
+            #<!-- Username input field -->
+            #<div class="form-group">
+                #<label for="signup-username">Username</label>
+                #{{ form.username }} <!-- Renders the username field from the form -->
+            #</div>
+            
+            #<!-- Email input field -->
+            #<div class="form-group">
+                #<label for="signup-email">Email</label>
+                #{{ form.email }} <!-- Renders the email field from the form -->
+            #</div>
+            
+            #<!-- Phone number input field -->
+            #<div class="form-group">
+                #<label for="signup-phone">Phone Number</label>
+                #{{ form.phone }} <!-- Renders the phone field from the form -->
+            #</div>
+            
+            #<!-- Department selection field -->
+            #<div class="form-group">
+                #<label for="department">Select Department</label>
+                #{{ form.department }} <!-- Renders the department dropdown from the form -->
+            #</div>
+            
+            #<!-- Password input field -->
+            #<div class="form-group">
+                #<label for="signup-password">Password</label>
+                #{{ form.password }} <!-- Renders the password field from the form -->
+            #</div>
+            
+            #<!-- Confirm password input field -->
+            #<div class="form-group">
+                #<label for="signup-confirm-password">Confirm Password</label>
+                #{{ form.confirm_password }} <!-- Renders the confirm password field from the form -->
+            #</div>
+            
+            #<!-- Submit button -->
+            #<button type="submit" class="btn">Sign Up</button>
+        #</form>
+        
+        #<!-- Link to the login page -->
+        #<div class="toggle-link">
+            #<p>Already registered? <a href="{% url 'login' %}">Login here</a></p>
+            #<!-- `{% url 'login' %}` dynamically generates the URL for the login page -->
+        #</div>
+    #</div>
+
+    #<!-- Footer section -->
+    #<div class="footer">
+        #<p>© 2025 IRCTC. All Rights Reserved</p>
+    #</div>
+#</body>
+#</html>
