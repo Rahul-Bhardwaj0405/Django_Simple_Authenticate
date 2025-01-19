@@ -9,9 +9,7 @@ When you need to create a form that is not directly tied to a database model (e.
 For forms with custom validation or fields that don't map directly to database fields.
 Example:
 
-python
-Copy
-Edit
+
 from django import forms
 
 class ContactForm(forms.Form):
@@ -26,13 +24,12 @@ class ContactForm(forms.Form):
         return email
 How to render in a template:
 
-html
-Copy
-Edit
+HTML:
 <form method="post">
     {{ form.as_p }}
     <button type="submit">Submit</button>
 </form>
+
 2. Model Forms
 What is it? A ModelForm is a subclass of forms.Form that is directly linked to a database model. It automates the creation of form fields based on the model fields.
 
@@ -42,9 +39,6 @@ When you need a form to create or update database records.
 Reduces boilerplate code since fields are auto-generated from the model.
 Example:
 
-python
-Copy
-Edit
 from django import forms
 from .models import Product
 
@@ -54,13 +48,13 @@ class ProductForm(forms.ModelForm):
         fields = ['name', 'price', 'description']
 How to render in a template:
 
-html
-Copy
-Edit
+html:
+
 <form method="post">
     {{ form.as_p }}
     <button type="submit">Save</button>
 </form>
+
 3. Formsets
 What is it? A formset is a collection of Django forms that allows you to manage multiple forms on a single page.
 
@@ -75,9 +69,7 @@ Model Formsets: Formsets tied to a model, useful for bulk creation or editing.
 Inline Formsets: A specialized formset for managing related models (e.g., child models in a ForeignKey or OneToOneField relationship).
 Example:
 
-python
-Copy
-Edit
+
 from django.forms import formset_factory
 
 class OrderForm(forms.Form):
@@ -87,9 +79,8 @@ class OrderForm(forms.Form):
 OrderFormSet = formset_factory(OrderForm, extra=3)
 How to render in a template:
 
-html
-Copy
-Edit
+html:
+
 <form method="post">
     {{ formset.management_form }}
     {% for form in formset %}
@@ -97,14 +88,14 @@ Edit
     {% endfor %}
     <button type="submit">Submit</button>
 </form>
+
 When to Choose What?
 Use Case	Recommended Form Type
-Custom forms not tied to the database	Django Forms
-Create/update records in the database	Model Forms
-Handle multiple forms of the same type	Formsets
-Manage parent-child relationships	Inline Formsets
-Forms with advanced validation logic	Django Forms or Model Forms with custom validation logic
-If you're working on a specific scenario, let me know, and I can help recommend the best approach!
+Custom forms not tied to the database:	Django Forms
+Create/update records in the database:	Model Forms
+Handle multiple forms of the same type:	Formsets
+Manage parent-child relationships:	Inline Formsets
+Forms with advanced validation logic:	Django Forms or Model Forms with custom validation logic
 
 
 
